@@ -13,20 +13,29 @@ export const metadata: Metadata = {
   description: "WebsTalentz helps startups, brands, shops, service businesses, and growing companies launch modern websites, ecommerce stores, mobile applications, and custom software solutions.",
 };
 
+import { ThemeProvider } from "@/components/theme-provider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
-      <body className="min-h-screen flex flex-col bg-white text-primary antialiased font-sans">
+    <html lang="en" className={cn("font-sans", geist.variable)} suppressHydrationWarning data-scroll-behavior="smooth">
+      <body className="min-h-screen flex flex-col bg-background text-foreground antialiased font-sans">
+        <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
         <Topbar />
         <Header />
         <main className="flex-1">
           {children}
         </main>
         <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
