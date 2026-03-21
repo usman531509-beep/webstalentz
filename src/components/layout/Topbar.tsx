@@ -1,5 +1,8 @@
 import { MapPin, Phone, Mail, Sparkles } from "lucide-react";
 
+const phoneNumber = "+92 339 6222327";
+const email = "webtalentz@outlook.com";
+
 export default function Topbar() {
   return (
     <div className="bg-slate-950 text-slate-300 text-[11px] md:text-[13px] py-1.5 md:py-2.5 border-b border-white/5">
@@ -10,9 +13,9 @@ export default function Topbar() {
         <div className="flex flex-1 lg:flex-none flex-nowrap items-center justify-center lg:justify-end gap-3 md:gap-6 overflow-hidden">
           <span className="hidden sm:flex items-center gap-1.5 tracking-tight opacity-80 whitespace-nowrap"><MapPin className="w-3 h-3 text-secondary"/> Punjab, PK</span>
           <span className="hidden sm:inline-block w-px h-3 bg-white/10"></span>
-          <a href="tel:03006363727" className="flex items-center gap-1.5 tracking-tight hover:text-white transition-colors whitespace-nowrap"><Phone className="w-3 h-3 text-secondary"/> 03006363727</a>
+          <a href="tel:03006363727" className="flex items-center gap-1.5 tracking-tight hover:text-white transition-colors whitespace-nowrap"><Phone className="w-3 h-3 text-secondary"/> {phoneNumber}</a>
           <span className="w-px h-3 bg-white/10"></span>
-          <a href="mailto:info@webstalentz.com" className="flex items-center gap-1.5 tracking-tight hover:text-white transition-colors whitespace-nowrap truncate"><Mail className="w-3 h-3 text-secondary"/> info@webstalentz.com</a>
+          <a href="mailto:info@webstalentz.com" className="flex items-center gap-1.5 tracking-tight hover:text-white transition-colors whitespace-nowrap truncate"><Mail className="w-3 h-3 text-secondary"/> {email}</a>
         </div>
       </div>
     </div>

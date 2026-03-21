@@ -13,7 +13,12 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 
+
 export default function Footer() {
+
+  const phoneNumber = "+92 339 6222327";
+  const email = "webtalentz@outlook.com";
+
   return (
     <>
       <footer className="bg-slate-950 text-slate-400 pt-[80px] pb-8 mt-20 relative overflow-hidden border-t border-white/5">
@@ -54,10 +59,17 @@ export default function Footer() {
             <div>
               <h4 className="text-white text-[13px] uppercase tracking-[0.2em] font-black mb-7">Company</h4>
               <div className="flex flex-col gap-[14px]">
-                {['Home', 'About Us', 'Services', 'Projects', 'Pricing', 'Contact'].map((link) => (
-                  <Link key={link} href={link === 'Home' ? '/' : `/${link.toLowerCase().replace(' ', '')}`} className="hover:text-secondary transition-colors inline-flex items-center group">
+                {[
+                  { name: 'Home', href: '/' },
+                  { name: 'About Us', href: '/about' },
+                  { name: 'Services', href: '/services' },
+                  { name: 'Projects', href: '/projects' },
+                  { name: 'Pricing', href: '/pricing' },
+                  { name: 'Contact', href: '/contact' }
+                ].map((link) => (
+                  <Link key={link.name} href={link.href} className="hover:text-secondary transition-colors inline-flex items-center group">
                     <span className="w-0 group-hover:w-2 h-[1px] bg-secondary mr-0 group-hover:mr-2 transition-all"></span>
-                    {link}
+                    {link.name}
                   </Link>
                 ))}
               </div>
@@ -90,13 +102,13 @@ export default function Footer() {
                 </button>
               </div>
               <div className="flex flex-col gap-4">
-                <a href="mailto:info@webstalentz.com" className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors">
+                <a href={`mailto:${email}`} className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors">
                   <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center"><Mail className="w-4 h-4 text-secondary" /></div>
-                  info@webstalentz.com
+                 {email}
                 </a>
-                <a href="tel:03006363727" className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors">
+                <a href={`tel:${phoneNumber}`} className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors">
                   <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center"><Phone className="w-4 h-4 text-secondary" /></div>
-                  03006363727
+                  {phoneNumber}
                 </a>
               </div>
             </div>
@@ -114,7 +126,7 @@ export default function Footer() {
 
       {/* Mobile Contact Bar */}
       <div className="md:hidden fixed left-[14px] right-[14px] bottom-[20px] z-[1200] bg-slate-900/95 backdrop-blur-xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-[24px] p-2 flex items-center gap-2">
-        <a href="tel:03006363727" className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-[18px] font-bold text-[14px] bg-secondary text-white active:scale-[0.98] transition-all">
+        <a href={`tel:${phoneNumber}`} className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-[18px] font-bold text-[14px] bg-secondary text-white active:scale-[0.98] transition-all">
           <Phone className="w-4 h-4" /> Call Now
         </a>
         <Link href="/contact" className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-[18px] font-bold text-[14px] bg-white/5 border border-white/10 text-white active:scale-[0.98] transition-all">

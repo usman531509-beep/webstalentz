@@ -310,7 +310,7 @@ export default function Home() {
         <div className="w-[calc(100%-24px)] md:w-[calc(100%-32px)] max-w-[1000px] mx-auto z-10 relative">
           <SlideUp className="text-center mb-[60px] md:mb-[80px]">
             <h2 className="text-[32px] md:text-[clamp(36px,5vw,48px)] m-0 mb-4 tracking-tight font-extrabold text-foreground">
-              Discover our Impact Across Industries
+              Industries We Provide Services To
             </h2>
           </SlideUp>
           
