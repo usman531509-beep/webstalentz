@@ -40,17 +40,17 @@ export default function AboutPage() {
         <div className="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-accent/15 rounded-full blur-[80px] -z-10"></div>
         
         <div className="w-[calc(100%-24px)] md:w-[calc(100%-32px)] max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[60px] items-center relative z-10">
-          <SlideUp>
+          <SlideUp className="flex flex-col items-center lg:items-start text-center lg:text-left">
             <span className="inline-flex items-center gap-[10px] bg-secondary/10 text-secondary border border-secondary/20 py-[8px] px-[16px] rounded-full font-semibold text-[13px] md:text-[14px] mb-[20px] w-auto">
               🏆 Our Story
             </span>
             <h1 className="text-[40px] md:text-[clamp(40px,5vw,68px)] leading-[1.1] m-0 mb-[24px] tracking-tight font-extrabold text-foreground">
               Building the Future of <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">Digital Business</span>
             </h1>
-            <p className="text-muted-foreground text-[16px] md:text-[18px] max-w-[600px] m-0 mb-[32px] leading-relaxed">
+            <p className="text-muted-foreground text-[16px] md:text-[18px] max-w-[540px] m-0 mb-[32px] leading-relaxed">
               At WebsTalentz, we bridge the gap between complex business challenges and elegant technical solutions. We are a software house of architects, developers, and visionaries.
             </p>
-            <div className="flex flex-wrap gap-[16px]">
+            <div className="flex flex-wrap gap-[16px] justify-center lg:justify-start">
               <div className="flex items-center gap-2 text-foreground font-semibold">
                 <CheckCircle2 className="w-5 h-5 text-secondary" /> Premium Design
               </div>

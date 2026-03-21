@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FadeIn, SlideUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import HeroNetwork from "@/components/visuals/HeroNetwork";
+import Counter from "@/components/ui/counter";
 import {
   ArrowRight,
   ArrowDown,
@@ -49,18 +50,18 @@ export default function Home() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30 dark:opacity-5 -z-10"></div>
 
         <div className="w-[calc(100%-24px)] md:w-[calc(100%-32px)] max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[40px] lg:gap-[60px] items-center relative z-10">
-          <SlideUp delay={0.1}>
-            <span className="inline-flex items-center gap-[10px] bg-secondary/10 text-secondary border border-secondary/20 py-[8px] px-[16px] rounded-full font-semibold text-[13px] md:text-[14px] mb-[20px] w-auto">
-              ✨ Next-Gen Digital Solutions
-            </span>
-            <h1 className="text-[40px] md:text-[clamp(40px,5vw,68px)] leading-[1.05] md:leading-[1.1] m-0 mb-[24px] tracking-[-0.03em] font-extrabold text-foreground">
-              We Design & Build <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">Powerful</span> Digital Products
+          <SlideUp delay={0.1} className="flex flex-col items-center lg:items-start text-center lg:text-left">
+
+            <h1 className="text-[36px] md:text-[clamp(40px,5vw,68px)] leading-[1.1] m-0 mb-[30px] tracking-[-0.03em] font-extrabold text-foreground max-w-[800px] lg:max-w-none">
+              Design & Build <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">Powerful</span> Digital Products
             </h1>
-            <p className="text-muted-foreground text-[16px] md:text-[18px] max-w-[600px] m-0 mb-[32px] leading-relaxed">
-              WebsTalentz helps brands, startups, and growing companies launch modern websites, ecommerce stores, mobile applications, and custom software that drive actual business value.
+            <p className="text-muted-foreground text-[16px] md:text-[18px] max-w-[540px] m-0 mb-[40px] leading-relaxed">
+              We create scalable websites, mobile apps, and custom software and custom software that drive actual business value.
+
+
             </p>
 
-            <div className="flex flex-wrap gap-[14px] mb-[32px]">
+            <div className="hidden md:flex flex-wrap gap-[14px] mb-[32px] !hidden md:!flex">
               <Link href="/contact" className="group inline-flex items-center justify-center gap-2 py-[14px] px-[28px] rounded-full font-bold transition-all duration-300 text-white shadow-[0_8px_30px_rgb(37,99,235,0.3)] bg-gradient-to-r from-secondary to-accent hover:shadow-[0_8px_30px_rgb(37,99,235,0.5)] hover:-translate-y-1">
                 Get Free Consultation <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
@@ -69,20 +70,26 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="flex flex-wrap items-center gap-[24px] pt-4 border-t border-border">
-              <div className="flex flex-col">
-                <strong className="text-[28px] md:text-[32px] font-bold text-foreground leading-none mb-1">100+</strong>
-                <span className="text-muted-foreground text-sm font-medium">Projects Delivered</span>
+            <div className="flex items-center justify-center lg:justify-start gap-[16px] md:gap-[32px] pt-6 border-t border-border w-full lg:w-auto">
+              <div className="flex flex-col items-center lg:items-start">
+                <strong className="text-[24px] md:text-[32px] font-bold text-foreground leading-none mb-1">
+                  <Counter value={100} />+
+                </strong>
+                <span className="text-muted-foreground text-[11px] md:text-sm font-medium whitespace-nowrap">Projects Done</span>
               </div>
-              <div className="w-px h-12 bg-border hidden md:block"></div>
-              <div className="flex flex-col">
-                <strong className="text-[28px] md:text-[32px] font-bold text-foreground leading-none mb-1">25+</strong>
-                <span className="text-muted-foreground text-sm font-medium">Industries Served</span>
+              <div className="w-px h-10 bg-border"></div>
+              <div className="flex flex-col items-center lg:items-start">
+                <strong className="text-[24px] md:text-[32px] font-bold text-foreground leading-none mb-1">
+                  <Counter value={25} />+
+                </strong>
+                <span className="text-muted-foreground text-[11px] md:text-sm font-medium whitespace-nowrap">Industries</span>
               </div>
-              <div className="w-px h-12 bg-border hidden md:block"></div>
-              <div className="flex flex-col">
-                <strong className="text-[28px] md:text-[32px] font-bold text-foreground leading-none mb-1">24/7</strong>
-                <span className="text-muted-foreground text-sm font-medium">Technical Support</span>
+              <div className="w-px h-10 bg-border"></div>
+              <div className="flex flex-col items-center lg:items-start">
+                <strong className="text-[24px] md:text-[32px] font-bold text-foreground leading-none mb-1">
+                  24/7
+                </strong>
+                <span className="text-muted-foreground text-[11px] md:text-sm font-medium whitespace-nowrap">Support</span>
               </div>
             </div>
           </SlideUp>
@@ -96,7 +103,7 @@ export default function Home() {
       {/* Brand Marquee Section */}
       <section className="py-[30px] md:py-[50px] bg-background border-y border-border overflow-hidden">
         <div className="w-[calc(100%-24px)] md:w-[calc(100%-32px)] max-w-[1200px] mx-auto mb-6 text-center">
-          <p className="text-muted-foreground text-sm font-semibold tracking-wider uppercase">Trusted by forward-thinking companies</p>
+          <p className="text-muted-foreground text-sm font-semibold tracking-wider uppercase">Trusted companies</p>
         </div>
         
         <div className="relative flex overflow-x-hidden group py-4">

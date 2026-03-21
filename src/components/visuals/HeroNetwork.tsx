@@ -6,12 +6,12 @@ import { Laptop, ShoppingCart, Smartphone, Cpu, Globe, Database } from "lucide-r
 
 const HeroNetwork = () => {
   const nodes = [
-    { id: 1, x: 20, y: 25, icon: <Laptop className="w-5 h-5 md:w-6 md:h-6" />, label: "Websites" },
-    { id: 2, x: 70, y: 20, icon: <ShoppingCart className="w-5 h-5 md:w-6 md:h-6" />, label: "Ecommerce" },
-    { id: 3, x: 85, y: 60, icon: <Smartphone className="w-5 h-5 md:w-6 md:h-6" />, label: "Mobile Apps" },
-    { id: 4, x: 50, y: 55, icon: <Cpu className="w-6 h-6 md:w-8 md:h-8 text-secondary" />, label: "Core Solution", main: true },
-    { id: 5, x: 15, y: 75, icon: <Globe className="w-5 h-5 md:w-6 md:h-6" />, label: "Global Reach" },
-    { id: 6, x: 65, y: 85, icon: <Database className="w-5 h-5 md:w-6 md:h-6" />, label: "Big Data" },
+    { id: 1, x: 20, y: 25, icon: <Laptop className="w-7 h-7 md:w-9 md:h-9" />, label: "Websites" },
+    { id: 2, x: 70, y: 20, icon: <ShoppingCart className="w-7 h-7 md:w-9 md:h-9" />, label: "Ecommerce" },
+    { id: 3, x: 85, y: 60, icon: <Smartphone className="w-7 h-7 md:w-9 md:h-9" />, label: "Mobile Apps" },
+    { id: 4, x: 50, y: 55, icon: <Cpu className="w-10 h-10 md:w-14 md:h-14 text-secondary" />, label: "Core Solution", main: true },
+    { id: 5, x: 15, y: 75, icon: <Globe className="w-7 h-7 md:w-9 md:h-9" />, label: "Global Reach" },
+    { id: 6, x: 65, y: 85, icon: <Database className="w-7 h-7 md:w-9 md:h-9" />, label: "Big Data" },
   ];
 
   const connections = [
@@ -54,9 +54,9 @@ const HeroNetwork = () => {
               {/* Static faint line */}
               <line 
                 x1={start.x} y1={start.y} x2={end.x} y2={end.y} 
-                stroke="currentColor" 
-                className="text-border dark:text-white/10" 
-                strokeWidth="0.2" 
+                stroke="#4b5563" 
+                strokeWidth="0.3" 
+                opacity="0.3"
               />
               {/* Animated pulse */}
               <motion.line
@@ -105,8 +105,8 @@ const HeroNetwork = () => {
             <div className={`
               backdrop-blur-xl border-2 rounded-full flex items-center justify-center transition-all duration-500
               ${node.main 
-                ? "w-16 h-16 md:w-24 md:h-24 bg-secondary/15 border-secondary shadow-[0_0_30px_rgba(37,99,235,0.4)]" 
-                : "w-12 h-12 md:w-16 md:h-16 bg-card/80 border-border group-hover:border-secondary/50 group-hover:bg-secondary/5 group-hover:shadow-lg"}
+                ? "w-24 h-24 md:w-40 md:h-40 bg-secondary/15 border-secondary shadow-[0_0_50px_rgba(37,99,235,0.4)]" 
+                : "w-16 h-16 md:w-22 md:h-22 bg-card/80 border-border group-hover:border-secondary/50 group-hover:bg-secondary/5 group-hover:shadow-lg"}
             `}>
               <div className={node.main ? "text-secondary" : "text-foreground group-hover:text-secondary"}>
                 {node.icon}
