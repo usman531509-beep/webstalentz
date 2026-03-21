@@ -11,6 +11,7 @@ import {
   ArrowRight,
   Send
 } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -23,8 +24,14 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1.2fr] gap-[40px] md:gap-[30px] mb-[60px]">
             {/* Brand Column */}
             <div>
-              <Link href="/" className="text-[26px] md:text-[30px] font-black tracking-tighter text-white mb-6 block">
-                Webs<span className="text-secondary">Talentz</span>
+              <Link href="/" className="mb-6 block h-10 w-[180px]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
+                  src="/images/logo.png" 
+                  alt="WebsTalentz Logo" 
+                  style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
+                  className="brightness-0 invert"
+                />
               </Link>
               <p className="m-0 text-slate-400 leading-relaxed mb-8 max-w-[320px]">
                 Empowering businesses with cutting-edge digital solutions. From custom software to global e-commerce platforms.

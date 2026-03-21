@@ -11,6 +11,11 @@ const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 export const metadata: Metadata = {
   title: "WebsTalentz | Software House",
   description: "WebsTalentz helps startups, brands, shops, service businesses, and growing companies launch modern websites, ecommerce stores, mobile applications, and custom software solutions.",
+  icons: {
+    icon: '/favicon.ico?v=1',
+    shortcut: '/favicon.ico?v=1',
+    apple: '/icon.png?v=1',
+  },
 };
 
 import { ThemeProvider } from "@/components/theme-provider";

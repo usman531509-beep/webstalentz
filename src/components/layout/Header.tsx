@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -31,8 +32,14 @@ export default function Header() {
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? "bg-background/80 backdrop-blur-xl shadow-sm border-b border-border" : "bg-background border-b border-border/50"}`}>
       <div className="w-[calc(100%-24px)] md:w-[calc(100%-32px)] max-w-[1200px] mx-auto flex flex-wrap lg:flex-nowrap items-center justify-between py-3 md:py-[18px] gap-5">
-        <Link href="/" className="text-[24px] md:text-[28px] font-extrabold tracking-tight flex items-center gap-1 transform transition-transform hover:scale-[1.02]">
-          Webs<span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">Talentz</span>
+        <Link href="/" className="flex items-center w-[160px] md:w-[220px]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img 
+            src="/images/logo.png" 
+            alt="WebsTalentz Logo" 
+            style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
+            className="md:scale-110"
+          />
         </Link>
         
         <div className="flex items-center gap-4 lg:hidden">
