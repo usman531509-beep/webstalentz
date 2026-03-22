@@ -73,14 +73,14 @@ export default function Home() {
             <div className="flex items-center justify-center lg:justify-start gap-[16px] md:gap-[32px] pt-6 border-t border-border w-full lg:w-auto">
               <div className="flex flex-col items-center lg:items-start">
                 <strong className="text-[24px] md:text-[32px] font-bold text-foreground leading-none mb-1">
-                  <Counter value={100} />+
+                  <Counter value={150} />+
                 </strong>
                 <span className="text-muted-foreground text-[11px] md:text-sm font-medium whitespace-nowrap">Projects Done</span>
               </div>
               <div className="w-px h-10 bg-border"></div>
               <div className="flex flex-col items-center lg:items-start">
                 <strong className="text-[24px] md:text-[32px] font-bold text-foreground leading-none mb-1">
-                  <Counter value={25} />+
+                  <Counter value={50} />+
                 </strong>
                 <span className="text-muted-foreground text-[11px] md:text-sm font-medium whitespace-nowrap">Industries</span>
               </div>
@@ -166,10 +166,10 @@ export default function Home() {
             
             {/* Col 1 */}
             <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col gap-4 md:gap-6 animate-marquee-vertical">
-              {[1, 2, 3].map((_, i) => (
+              {[1, 2].map((_, i) => (
                 <div key={i} className="flex flex-col gap-4 md:gap-6">
                   <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden group shadow-lg">
-                     <Image src="/images/globe_network.png" alt="Real Estate CRM" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                     <Image src="/images/project_crm.png" alt="Real Estate CRM" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
                      <div className="absolute bottom-0 left-0 p-6 z-10">
                        <span className="text-white font-bold text-[18px] mb-2 block uppercase tracking-tighter text-secondary">Client Success</span>
@@ -189,17 +189,25 @@ export default function Home() {
                        <p className="text-white/90 text-[14px] leading-snug font-medium">Scaling SaaS: Why microservices are the key to growth in 2026</p>
                      </div>
                   </div>
+                   <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden group shadow-lg">
+                     <Image src="/images/project_mobile_app.png" alt="Mobile App Case Study" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
+                     <div className="absolute bottom-0 left-0 p-6 z-10">
+                       <span className="text-white font-bold text-[18px] mb-2 block uppercase tracking-tighter text-blue-400">Mobile First</span>
+                       <p className="text-white/90 text-[14px] leading-snug font-medium">Award-winning fitness app spanning 1M+ active daily users</p>
+                     </div>
+                  </div>
                 </div>
               ))}
             </div>
 
             {/* Col 2 (Reverse) */}
             <div className="hidden md:flex w-1/2 lg:w-1/3 flex-col gap-4 md:gap-6 animate-marquee-vertical-reverse" style={{ marginTop: "-200px" }}>
-              {[1, 2, 3].map((_, i) => (
+              {[1, 2].map((_, i) => (
                 <div key={i} className="flex flex-col gap-4 md:gap-6">
                   <div className="relative aspect-square rounded-[24px] overflow-hidden group shadow-lg">
                      <Image 
-                      src="/images/financial_chart.png" 
+                      src="/images/service_erp.png" 
                       alt="ERP Strategy Blog" 
                       fill 
                       sizes="(max-width: 768px) 100vw, 33vw"
@@ -223,17 +231,30 @@ export default function Home() {
                        <p className="text-white/90 text-[14px] leading-snug font-medium">Logistics Hub: AI-powered route optimization for 1k+ fleets</p>
                      </div>
                   </div>
+                  <div className="relative aspect-square rounded-[24px] overflow-hidden group shadow-lg">
+                     <Image 
+                      src="/images/financial_chart.png" 
+                      alt="Data Strategy Case Study" 
+                      fill 
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                    /> <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
+                     <div className="absolute bottom-0 left-0 p-6 z-10">
+                       <span className="text-white font-bold text-[18px] mb-2 block uppercase tracking-tighter text-emerald-400">Data Strategy</span>
+                       <p className="text-white/90 text-[14px] leading-snug font-medium">How predictive analytics boosted retail conversions by 40%</p>
+                     </div>
+                  </div>
                 </div>
               ))}
             </div>
 
             {/* Col 3 */}
             <div className="hidden lg:flex w-1/3 flex-col gap-4 md:gap-6 animate-marquee-vertical">
-              {[1, 2, 3].map((_, i) => (
+              {[1, 2].map((_, i) => (
                 <div key={i} className="flex flex-col gap-4 md:gap-6">
                   <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden group shadow-lg">
                      <Image 
-                      src="/images/cloud_nodes.png" 
+                      src="/images/project_web_app.png" 
                       alt="Headless E-commerce Case Study" 
                       fill 
                       sizes="(max-width: 768px) 100vw, 33vw"
@@ -246,7 +267,7 @@ export default function Home() {
                   </div>
                   <div className="relative aspect-square rounded-[24px] overflow-hidden group shadow-lg">
                      <Image 
-                      src="/images/financial_chart.png" 
+                      src="/images/service_gen_ai.png" 
                       alt="HealthTech Portal Case Study" 
                       fill 
                       sizes="(max-width: 768px) 100vw, 33vw"
@@ -255,6 +276,19 @@ export default function Home() {
                      <div className="absolute bottom-0 left-0 p-6 z-10">
                        <span className="text-white font-bold text-[18px] mb-2 block uppercase tracking-tighter text-accent">HealthTech</span>
                        <p className="text-white/90 text-[14px] leading-snug font-medium">HealthTech: HIPAA-compliant patient portal for 10+ clinics</p>
+                     </div>
+                  </div>
+                  <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden group shadow-lg">
+                     <Image 
+                      src="/images/project_school.png" 
+                      alt="EdTech Platform Case Study" 
+                      fill 
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                    /> <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
+                     <div className="absolute bottom-0 left-0 p-6 z-10">
+                       <span className="text-white font-bold text-[18px] mb-2 block uppercase tracking-tighter text-purple-400">EdTech</span>
+                       <p className="text-white/90 text-[14px] leading-snug font-medium">Virtual learning platform serving 50,000 students globally</p>
                      </div>
                   </div>
                 </div>
@@ -306,7 +340,7 @@ export default function Home() {
       </section>
 
       {/* Discover our Impact Across Industries */}
-      <section className="py-[80px] md:py-[120px] bg-background relative border-t border-border">
+      <section className="pt-[80px] md:pt-[120px] pb-[40px] md:pb-[60px] bg-background relative border-t border-border">
         <div className="w-[calc(100%-24px)] md:w-[calc(100%-32px)] max-w-[1000px] mx-auto z-10 relative">
           <SlideUp className="text-center mb-[60px] md:mb-[80px]">
             <h2 className="text-[32px] md:text-[clamp(36px,5vw,48px)] m-0 mb-4 tracking-tight font-extrabold text-foreground">
@@ -341,7 +375,7 @@ export default function Home() {
       </section>
 
       {/* Technologies Section */}
-      <section className="py-[80px] md:py-[120px]">
+      <section className="pt-[40px] md:pt-[60px] pb-[80px] md:pb-[120px]">
         <div className="w-[calc(100%-24px)] md:w-[calc(100%-32px)] max-w-[1200px] mx-auto">
           <SlideUp className="text-center mb-[50px] md:mb-[70px]">
             <h2 className="text-[32px] md:text-[clamp(32px,4vw,48px)] m-0 mb-4 tracking-tight font-extrabold">Technologies We Master</h2>

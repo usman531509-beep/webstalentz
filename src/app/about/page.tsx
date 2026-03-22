@@ -7,10 +7,10 @@ export const metadata = { title: "About | WebsTalentz" };
 
 export default function AboutPage() {
   const values = [
-    { icon: <Zap className="w-6 h-6 text-secondary" />, title: "Innovation", desc: "We constantly explore emerging technologies to provide cutting-edge solutions." },
-    { icon: <Shield className="w-6 h-6 text-secondary" />, title: "Reliability", desc: "Every line of code is tested for maximum security, performance, and stability." },
-    { icon: <Users className="w-6 h-6 text-secondary" />, title: "Client-Centric", desc: "Your business goals are the foundation of every development decision we make." },
-    { icon: <Heart className="w-6 h-6 text-secondary" />, title: "Excellence", desc: "We don't settle for 'good enough'—we strive for digital perfection." },
+    { icon: <Zap className="w-6 h-6 transition-colors" />, title: "Innovation", desc: "We constantly explore emerging technologies to provide cutting-edge solutions." },
+    { icon: <Shield className="w-6 h-6 transition-colors" />, title: "Reliability", desc: "Every line of code is tested for maximum security, performance, and stability." },
+    { icon: <Users className="w-6 h-6 transition-colors" />, title: "Client-Centric", desc: "Your business goals are the foundation of every development decision we make." },
+    { icon: <Heart className="w-6 h-6 transition-colors" />, title: "Excellence", desc: "We don't settle for 'good enough'—we strive for digital perfection." },
   ];
 
   const stats = [
@@ -70,8 +70,9 @@ export default function AboutPage() {
                 alt="WebsTalentz Philosophy" 
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                className="object-cover grayscale contrast-[1.1] transition-transform duration-700 group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-secondary mix-blend-color opacity-60 transition-opacity duration-700 group-hover:opacity-0"></div>
               <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent"></div>
             </div>
             {/* Floating Card */}
@@ -122,7 +123,7 @@ export default function AboutPage() {
               <StaggerItem key={i}>
                 <div className="bg-card border border-border rounded-[24px] p-[32px] shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col group relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-24 h-24 bg-secondary/5 rounded-bl-[80px] -z-10 group-hover:scale-125 transition-transform duration-500"></div>
-                  <div className="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-secondary/10 text-secondary flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
                     {v.icon}
                   </div>
                   <h3 className="m-0 mb-3 font-bold text-[20px] text-foreground">{v.title}</h3>
@@ -155,13 +156,23 @@ export default function AboutPage() {
             </div>
           </SlideUp>
 
-          <FadeIn delay={0.3} className="hidden lg:block relative text-center">
-            <div className="relative w-[80%] aspect-square mx-auto rounded-full bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center p-12">
-              <div className="w-full h-full rounded-full border-2 border-dashed border-secondary/30 animate-[spin_60s_linear_infinite] absolute"></div>
-              <div className="relative z-10">
-                <Globe className="w-32 h-32 text-secondary mb-6 animate-pulse" />
-                <h3 className="text-[28px] font-bold text-foreground m-0">Globally Ready</h3>
-                <p className="text-muted-foreground">Operating without borders.</p>
+          <FadeIn delay={0.3} className="hidden lg:flex relative text-center items-center justify-center">
+            <div className="relative w-full max-w-[540px] aspect-[4/5] mx-auto rounded-[32px] overflow-hidden shadow-2xl group border border-border/50">
+              <Image 
+                src="/images/hero_tech_illustration.png"
+                alt="Global Operations"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover transition-transform duration-[10s] ease-linear group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 transition-opacity duration-500 group-hover:opacity-80"></div>
+              
+              <div className="absolute inset-0 p-8 md:p-12 z-10 flex flex-col items-center justify-end text-center">
+                <div className="w-20 h-20 rounded-full bg-secondary/20 backdrop-blur-md flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(37,99,235,0.5)] animate-pulse">
+                  <Globe className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-[36px] font-extrabold text-white mb-3 tracking-tight">Globally Ready</h3>
+                <p className="text-white/80 text-[18px] max-w-[300px] leading-relaxed mx-auto">Operating without borders to deliver engineering excellence worldwide.</p>
               </div>
             </div>
           </FadeIn>

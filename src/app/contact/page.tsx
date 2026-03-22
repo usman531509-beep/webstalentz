@@ -5,8 +5,8 @@ export const metadata = { title: "Contact Us | WebsTalentz" };
 
 export default function ContactPage() {
   const contactMethods = [
-    { icon: <Mail className="w-6 h-6" />, title: "Email Us", val: "info@webstalentz.com", desc: "For general inquiries and projects." },
-    { icon: <Phone className="w-6 h-6" />, title: "Call Us", val: "+92 300 6363727", desc: "Mon-Sat from 9am to 6pm." },
+    { icon: <Mail className="w-6 h-6" />, title: "Email Us", val: "webtalentz@outlook.com", desc: "For general inquiries and projects." },
+    { icon: <Phone className="w-6 h-6" />, title: "Call Us", val: "+92 339 6222327", desc: "Mon-Sat from 9am to 6pm." },
     { icon: <MapPin className="w-6 h-6" />, title: "Visit Us", val: "Punjab, Pakistan", desc: "Our main development studio." },
   ];
 
