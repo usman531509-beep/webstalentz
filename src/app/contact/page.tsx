@@ -1,14 +1,57 @@
-import { FadeIn, SlideUp, StaggerContainer, StaggerItem } from "@/components/animations";
-import { Mail, Phone, MapPin, Send, Globe, MessageSquare } from "lucide-react";
+"use client";
 
-export const metadata = { title: "Contact Us | WebsTalentz" };
+import { useState } from "react";
+import { FadeIn, SlideUp, StaggerContainer, StaggerItem } from "@/components/animations";
+import { Mail, Phone, MapPin, Send, Globe, MessageSquare, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    service: "Web Development",
+    message: "",
+  });
+
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
   const contactMethods = [
     { icon: <Mail className="w-6 h-6" />, title: "Email Us", val: "webtalentz@outlook.com", desc: "For general inquiries and projects." },
     { icon: <Phone className="w-6 h-6" />, title: "Call Us", val: "+92 339 6222327", desc: "Mon-Sat from 9am to 6pm." },
     { icon: <MapPin className="w-6 h-6" />, title: "Visit Us", val: "Punjab, Pakistan", desc: "Our main development studio." },
   ];
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw new Error(result.error || "Failed to send message");
+      }
+
+      setStatus("success");
+      setFormData({ name: "", email: "", service: "Web Development", message: "" });
+    } catch (err: any) {
+      console.error(err);
+      setStatus("error");
+      setErrorMessage(err.message || "Something went wrong. Please try again later.");
+    }
+  };
 
   return (
     <div className="bg-background min-h-screen">
@@ -72,25 +115,61 @@ export default function ContactPage() {
               </div>
             </FadeIn>
 
-            <SlideUp delay={0.2} className="bg-card border border-border rounded-[32px] p-8 md:p-12 shadow-2xl relative">
+            <SlideUp delay={0.2} className="bg-card border border-border rounded-[32px] p-8 md:p-12 shadow-2xl relative overflow-hidden">
               <div className="absolute top-8 right-8 text-secondary/5 -z-0">
                 <Send className="w-24 h-24" />
               </div>
               <h3 className="text-2xl font-bold mb-8 text-foreground z-10 relative">Send us a Message</h3>
-              <form className="space-y-6 relative z-10">
+              
+              <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+                {status === "success" && (
+                  <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 p-4 rounded-2xl flex items-center gap-3 mb-6 animate-in fade-in zoom-in duration-300">
+                    <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
+                    <p className="text-sm font-medium m-0">Thank you! Your message has been sent successfully. We will get back to you shortly.</p>
+                  </div>
+                )}
+
+                {status === "error" && (
+                  <div className="bg-red-500/10 border border-red-500/20 text-red-600 p-4 rounded-2xl flex items-center gap-3 mb-6 animate-in fade-in zoom-in duration-300">
+                    <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                    <p className="text-sm font-medium m-0">{errorMessage}</p>
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-foreground">Name</label>
-                    <input type="text" placeholder="Your name" className="w-full bg-background border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-secondary transition-colors" />
+                    <input 
+                      type="text" 
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Your name" 
+                      className="w-full bg-background border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-secondary transition-colors" 
+                    />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-bold text-foreground">Email</label>
-                    <input type="email" placeholder="Email address" className="w-full bg-background border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-secondary transition-colors" />
+                    <input 
+                      type="email" 
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Email address" 
+                      className="w-full bg-background border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-secondary transition-colors" 
+                    />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-foreground">Service Required</label>
-                  <select className="w-full bg-background border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-secondary transition-colors appearance-none">
+                  <select 
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    className="w-full bg-background border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-secondary transition-colors appearance-none"
+                  >
                     <option>Web Development</option>
                     <option>Mobile App</option>
                     <option>Ecommerce Store</option>
@@ -99,10 +178,30 @@ export default function ContactPage() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-foreground">Message</label>
-                  <textarea rows={4} placeholder="How can we help you?" className="w-full bg-background border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-secondary transition-colors resize-none"></textarea>
+                  <textarea 
+                    name="message"
+                    required
+                    rows={4} 
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="How can we help you?" 
+                    className="w-full bg-background border border-border rounded-xl p-4 text-foreground focus:outline-none focus:border-secondary transition-colors resize-none"
+                  ></textarea>
                 </div>
-                <button type="button" className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-5 rounded-2xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2">
-                  Send Your Inquiry <Send className="w-4 h-4" />
+                <button 
+                  type="submit" 
+                  disabled={status === "loading"}
+                  className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-5 rounded-2xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {status === "loading" ? (
+                    <>
+                      Sending... <Loader2 className="w-5 h-5 animate-spin" />
+                    </>
+                  ) : (
+                    <>
+                      Send Your Inquiry <Send className="w-4 h-4" />
+                    </>
+                  )}
                 </button>
               </form>
             </SlideUp>
@@ -112,4 +211,3 @@ export default function ContactPage() {
     </div>
   );
 }
-
