@@ -1,7 +1,7 @@
 import { MapPin, Phone, Mail, Sparkles } from "lucide-react";
 
 const phoneNumber = "+92 339 6222327";
-const email = "webtalentz@outlook.com";
+const email = "support@webstalentz.com";
 
 export default function Topbar() {
   return (

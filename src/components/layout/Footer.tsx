@@ -17,7 +17,7 @@ import Image from "next/image";
 export default function Footer() {
 
   const phoneNumber = "+92 339 6222327";
-  const email = "webtalentz@outlook.com";
+  const email = "support@webstalentz.com";
 
   return (
     <>
