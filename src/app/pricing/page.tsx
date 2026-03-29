@@ -2,7 +2,10 @@ import Link from "next/link";
 import { FadeIn, SlideUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { Check, ArrowRight, Sparkles, HelpCircle } from "lucide-react";
 
-export const metadata = { title: "Pricing | WebsTalentz" };
+export const metadata = {
+  title: "Pricing Plans",
+  description: "Transparent and flexible pricing plans for your custom software, website, and mobile app development needs.",
+};
 
 export default function PricingPage() {
   const plans = [

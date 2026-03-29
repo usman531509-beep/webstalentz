@@ -3,7 +3,10 @@ import Image from "next/image";
 import { FadeIn, SlideUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { ArrowRight, CheckCircle2, Award, Users, Globe, Rocket, Zap, Shield, Heart } from "lucide-react";
 
-export const metadata = { title: "About | WebsTalentz" };
+export const metadata = { 
+  title: "About Us",
+  description: "Learn about WebsTalentz, a premier software house dedicated to building scalable web and mobile applications for modern businesses.",
+};
 
 export default function AboutPage() {
   const values = [

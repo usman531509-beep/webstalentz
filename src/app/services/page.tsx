@@ -2,7 +2,10 @@ import Link from "next/link";
 import { FadeIn, SlideUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { ArrowRight, Code2, Smartphone, LayoutDashboard, Palette, MonitorSmartphone, ShieldCheck } from "lucide-react";
 
-export const metadata = { title: "Services | WebsTalentz" };
+export const metadata = { 
+  title: "Our Services",
+  description: "Explore our professional digital services, including custom software development, mobile apps, e-commerce, and generative AI solutions.",
+};
 
 export default function ServicesPage() {
   const services = [

@@ -3,7 +3,10 @@ import Image from "next/image";
 import { FadeIn, SlideUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { ArrowRight, ExternalLink } from "lucide-react";
 
-export const metadata = { title: "Projects | WebsTalentz" };
+export const metadata = {
+  title: "Portfolio & Case Studies",
+  description: "View our recent success stories. See how WebsTalentz transforms ideas into powerful digital products for startups and enterprises.",
+};
 
 export default function ProjectsPage() {
   const projects = [
