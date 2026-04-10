@@ -12,11 +12,12 @@ import {
   Send
 } from "lucide-react";
 import Image from "next/image";
+import { WhatsAppIcon } from "@/components/icons";
 
 
 export default function Footer() {
 
-  const phoneNumber = "+92 339 6222327";
+  const phoneNumber = "+92 370 4351097";
   const email = "support@webstalentz.com";
 
   return (
@@ -106,8 +107,8 @@ export default function Footer() {
                   <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center"><Mail className="w-4 h-4 text-secondary" /></div>
                  {email}
                 </a>
-                <a href={`tel:${phoneNumber}`} className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center"><Phone className="w-4 h-4 text-secondary" /></div>
+                <a href="https://wa.me/923704351097" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors">
+                  <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center"><WhatsAppIcon className="w-4 h-4 text-secondary" /></div>
                   {phoneNumber}
                 </a>
               </div>
@@ -126,8 +127,8 @@ export default function Footer() {
 
       {/* Mobile Contact Bar */}
       <div className="md:hidden fixed left-[14px] right-[14px] bottom-[20px] z-[1200] bg-slate-900/95 backdrop-blur-xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-[24px] p-2 flex items-center gap-2">
-        <a href={`tel:${phoneNumber}`} className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-[18px] font-bold text-[14px] bg-secondary text-white active:scale-[0.98] transition-all">
-          <Phone className="w-4 h-4" /> Call Now
+        <a href="https://wa.me/923704351097" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-[18px] font-bold text-[14px] bg-secondary text-white active:scale-[0.98] transition-all">
+          <WhatsAppIcon className="w-4 h-4" /> WhatsApp Us
         </a>
         <Link href="/contact" className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-[18px] font-bold text-[14px] bg-white/5 border border-white/10 text-white active:scale-[0.98] transition-all">
           <Mail className="w-4 h-4" /> Get Quote

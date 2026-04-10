@@ -1,6 +1,7 @@
 import { MapPin, Phone, Mail, Sparkles } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons";
 
-const phoneNumber = "+92 339 6222327";
+const phoneNumber = "+92 370 4351097";
 const email = "support@webstalentz.com";
 
 export default function Topbar() {
@@ -13,7 +14,7 @@ export default function Topbar() {
         <div className="flex flex-1 lg:flex-none flex-nowrap items-center justify-center lg:justify-end gap-3 md:gap-6 overflow-hidden">
           <span className="hidden sm:flex items-center gap-1.5 tracking-tight opacity-80 whitespace-nowrap"><MapPin className="w-3 h-3 text-secondary"/> Punjab, PK</span>
           <span className="hidden sm:inline-block w-px h-3 bg-white/10"></span>
-          <a href="tel:03006363727" className="flex items-center gap-1.5 tracking-tight hover:text-white transition-colors whitespace-nowrap"><Phone className="w-3 h-3 text-secondary"/> {phoneNumber}</a>
+          <a href="https://wa.me/923704351097" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 tracking-tight hover:text-white transition-colors whitespace-nowrap"><WhatsAppIcon className="w-3.5 h-3.5 text-secondary"/> {phoneNumber}</a>
           <span className="w-px h-3 bg-white/10"></span>
           <a href="mailto:info@webstalentz.com" className="flex items-center gap-1.5 tracking-tight hover:text-white transition-colors whitespace-nowrap truncate"><Mail className="w-3 h-3 text-secondary"/> {email}</a>
         </div>

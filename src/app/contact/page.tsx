@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FadeIn, SlideUp, StaggerContainer, StaggerItem } from "@/components/animations";
 import { Mail, Phone, MapPin, Send, Globe, MessageSquare, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -17,7 +18,7 @@ export default function ContactPage() {
 
   const contactMethods = [
     { icon: <Mail className="w-6 h-6" />, title: "Email Us", val: "support@webstalentz.com", desc: "For general inquiries and projects." },
-    { icon: <Phone className="w-6 h-6" />, title: "Call Us", val: "+92 339 6222327", desc: "Mon-Sat from 9am to 6pm." },
+    { icon: <WhatsAppIcon className="w-6 h-6" />, title: "WhatsApp Us", val: "+92 370 4351097", desc: "Mon-Sat from 9am to 6pm." },
     { icon: <MapPin className="w-6 h-6" />, title: "Visit Us", val: "Punjab, Pakistan", desc: "Our main development studio." },
   ];
 
@@ -76,14 +77,19 @@ export default function ContactPage() {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 mb-20 text-left">
             {contactMethods.map((method, i) => (
               <StaggerItem key={i}>
-                <div className="bg-card border border-border rounded-[28px] p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                <a 
+                  href={method.title === "WhatsApp Us" ? "https://wa.me/923704351097" : undefined}
+                  target={method.title === "WhatsApp Us" ? "_blank" : undefined}
+                  rel={method.title === "WhatsApp Us" ? "noopener noreferrer" : undefined}
+                  className={`bg-card border border-border rounded-[28px] p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group block ${method.title === "WhatsApp Us" ? "cursor-pointer" : "cursor-default"}`}
+                >
                   <div className="w-12 h-12 rounded-2xl bg-secondary/10 text-secondary flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
                     {method.icon}
                   </div>
                   <h3 className="text-lg font-bold mb-2 text-foreground">{method.title}</h3>
                   <div className="text-secondary font-bold text-lg mb-2">{method.val}</div>
                   <p className="text-muted-foreground text-sm m-0">{method.desc}</p>
-                </div>
+                </a>
               </StaggerItem>
             ))}
           </StaggerContainer>
